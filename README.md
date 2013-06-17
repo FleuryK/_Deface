@@ -1,4 +1,8 @@
 _Deface
 =======
 
-A script to create index files of a directory, and inform the change or operations.
+SCRIPT DE SURVEILLANCE D'UN REPERTOIRE
+Ce script va annalyser un répertoire défini et constater les changements effectué :
+Ajout, Modification, Suppression. C'est tout.
+
+Construction d'un index, constate les changements, envoi d'un mail. Voilà.
