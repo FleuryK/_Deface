@@ -74,11 +74,11 @@ function liste_file_hash($dir)
                 elseif ($fichier != '.' && $fichier != '..' && !is_dir($path)) {
                     // echo $path . ' - hash(' . md5_file($path) . ')<br />';
                     // It inserts the path of the file and its MD5 hash
-                   $requete_sql = mysql_query('SELECT COUNT(*) FROM _deface WHERE path = "'.$path.'"'); // Parano jusqu'au bout
+                   $requete_sql = mysql_query('SELECT COUNT(*) FROM '.DBTABLE.' WHERE path = "'.$path.'"'); // Parano jusqu'au bout
                    $res=mysql_result($requete_sql,0);
                    if($res==0)
                    {
-                      mysql_query('INSERT INTO `_deface` ( `file_id` , `path` , `hash` ) VALUES (NULL , \'' . $path . '\', \'' . md5_file($path) . '\');') or die('Erreur : ' . mysql_error());
+                      mysql_query('INSERT INTO `'.DBTABLE.'` ( `file_id` , `path` , `hash` ) VALUES (NULL , \'' . $path . '\', \'' . md5_file($path) . '\');') or die('Erreur : ' . mysql_error());
                       $fileAdded[] = "[A] Le fichier ". $path ." a été ajouté récemment\n";
                    }
                    mysql_free_result($requete_sql);
@@ -148,14 +148,14 @@ liste_file_hash(HOME_WWW);
                 if ($hash_md5 != $row['hash'])
                 {
                     $rapport .= "[M] Le fichier " . $row['path'] . " a été modifié (MD5 mismatch)\n";
-                    mysql_query('UPDATE `_deface` SET  `hash` = "'.$hash_md5.'" WHERE `path`="'.$row['path'].'";');
+                    mysql_query('UPDATE `'.DBTABLE.'` SET  `hash` = "'.$hash_md5.'" WHERE `path`="'.$row['path'].'";');
                 }
             }
         } 
         else
         { // Si il existe pas
             $rapport .= "[D] " . $row['path'] . " N'est plus présent sur le serveur ...\n";
-            mysql_query('DELETE FROM `_deface` WHERE `path` = "'.$row['path'].'"');
+            mysql_query('DELETE FROM `'.DBTABLE.'` WHERE `path` = "'.$row['path'].'"');
             // KILL IT WITH THE FIRE !
         }
     }
