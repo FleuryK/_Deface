@@ -72,7 +72,6 @@ function liste_file_hash($dir)
                     liste_file_hash($path);
                 // If we are dealing with a file
                 elseif ($fichier != '.' && $fichier != '..' && !is_dir($path)) {
-                    // echo $path . ' - hash(' . md5_file($path) . ')<br />';
                     // It inserts the path of the file and its MD5 hash
                    $requete_sql = mysql_query('SELECT COUNT(*) FROM '.DBTABLE.' WHERE path = "'.$path.'"'); // Parano jusqu'au bout
                    $res=mysql_result($requete_sql,0);
