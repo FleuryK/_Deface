@@ -31,7 +31,7 @@ define('DBHOST', 'localhost'); // adresse du serveur SQL
 define('DBUSER', 'user'); // Nom d'utilisateur
 define('DBPASS', '_deface#motdepasse#siteouaib'); // Mot de passe. Privilégiez un utilisateur distinct
 define('DBBASE', 'database_deface'); // Base de données. Si possible une autre base avec l'utilisateur distinct.
-define('DBTABLE', '_deface')
+define('DBTABLE', '_deface'); // mais j'ai de la merde dans les yeux ou quoi ?
 
 // Connecting to the database
 mysql_connect(DBHOST, DBUSER, DBPASS) or die('Erreur : ' . mysql_error());
@@ -173,7 +173,7 @@ liste_file_hash(HOME_WWW);
             $entetes .= "MIME-Version: 1.0\n";
             $send = mail(EMAIL_ADMIN, '[DEFACE] Rapport d\'analyse du répertoire', $msgDebut . $rapport, $entetes);
             if (!$send)
-                echo '<p>Unable to send mail</p>';
+                echo 'Unable to send mail';
 
             
 
