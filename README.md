@@ -21,3 +21,9 @@ C'est tout ! Lancez le en ligne de commande avec `php -f _deface.php` et laissez
 
 Il se mettra à jour tout seul à la prochaine éxecution.
 
+LICENCE
+=======
+
+Lire, écrire, modifier ... voilà !
+
+Mais évitez les utilisations commerciales (revente du script), parce que bon, c'est mal de se faire de l'argent sur le dos des autres.
