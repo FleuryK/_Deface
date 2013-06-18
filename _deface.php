@@ -31,7 +31,7 @@ define('DBHOST', 'localhost'); // adresse du serveur SQL
 define('DBUSER', 'user'); // Nom d'utilisateur
 define('DBPASS', '_deface#motdepasse#siteouaib'); // Mot de passe. Privilégiez un utilisateur distinct
 define('DBBASE', 'database_deface'); // Base de données. Si possible une autre base avec l'utilisateur distinct.
-define('DBTABLE', '_deface'); // mais j'ai de la merde dans les yeux ou quoi ?
+define('DBTABLE', '_deface'); // la table utilisé.
 
 // Connecting to the database
 mysql_connect(DBHOST, DBUSER, DBPASS) or die('Erreur : ' . mysql_error());
@@ -162,7 +162,7 @@ liste_file_hash(HOME_WWW);
 
     mysql_free_result($query); // On libère le serveur
     
-    // RAPPORT SEND : Ne marche pas avec crontab (dépends des serveurs)
+    // RAPPORT SEND : Ne marche pas avec crontab (enfin si, mais dépends des serveurs)
     if (!empty($rapport))
     {
         if(EMAIL_AVERT == 1)
@@ -174,10 +174,6 @@ liste_file_hash(HOME_WWW);
             $send = mail(EMAIL_ADMIN, '[DEFACE] Rapport d\'analyse du répertoire', $msgDebut . $rapport, $entetes);
             if (!$send)
                 echo 'Unable to send mail';
-
-            
-
-        // mysql_query('TRUNCATE TABLE _deface;'); // pour les tests
         }
 
         echo $msgDebut . $rapport;
