@@ -4,4 +4,4 @@ CREATE TABLE IF NOT EXISTS `_deface` (
   `hash` varchar(32) NOT NULL,
   UNIQUE KEY `file_id` (`file_id`),
   UNIQUE KEY `path` (`path`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4051 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
