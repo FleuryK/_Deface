@@ -93,10 +93,10 @@ liste_file_hash(HOME_WWW);
     $requete = 'SELECT * FROM `'.DBTABLE.'`';
     $query = mysql_query($requete) or die('Error : ' . mysql_error());
 
-    $msgDebut = "Bonjour ! Ceci est un message automatique. Quelques changements on eu lieu sur le répertoire suivant :\n";
+    $msgDebut = "Bonjour ! Ceci est un message automatique. Quelques changements ont eu lieu sur le répertoire suivant :\n";
     $msgDebut .= HOME_WWW . "\n";
-    $msgDebut .="Suite à ce rapport, l'index à été mis à jour. Les changements d'aujourd'hui n'apparaitrons pas dans un futur rapport. \n";
-    $msgDebut .= "Voici le rapport complet: \n\n";
+    $msgDebut .="Suite à ce rapport, l'index à été mis à jour. Les changements d'aujourd'hui n'apparaîtront pas dans un futur rapport. \n";
+    $msgDebut .= "Voici le rapport complet : \n\n";
 
     $rapport = null;
 
@@ -153,7 +153,7 @@ liste_file_hash(HOME_WWW);
         } 
         else
         { // Si il existe pas
-            $rapport .= "[D] " . $row['path'] . " N'est plus présent sur le serveur ...\n";
+            $rapport .= "[D] Le fichier " . $row['path'] . " n'est plus présent sur le serveur ...\n";
             mysql_query('DELETE FROM `'.DBTABLE.'` WHERE `path` = "'.$row['path'].'"');
             // KILL IT WITH THE FIRE !
         }
